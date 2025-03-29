@@ -2,7 +2,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Noto Sans Malayalam, sans-serif;
     display: flex;
     flex-direction: column;
 }
