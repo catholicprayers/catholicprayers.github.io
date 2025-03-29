@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <title>Catholic Prayers Malayalam</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class='content'>
+        <!-- Navigation Bar -->
+        <div class='content'>
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+        <nav>
+            <div class='nav-links'>
+                <a href='index.html'>Home</a>
+                <a href='#prayers'>Prayers</a>
+            </div>
+            <div class='search-bar'>
+                <form action='#' method='GET'>
+                    <input name='q' placeholder='Search...' type='text'/>
+                    <button type='submit'>🔍</button>
+                </form>
+            </div>
+        </nav>
+</div>
+
+
+        <!-- Header Section -->
+        <header>
+            <div class="image">
+                <img src="4.ജലു" alt="Jesus Christ">
+            </div>
+            <div class="title">
+                കരുണയുടെ ജപമാല 
+            </div>
+        </header>
+        
+        <!-- Main Content Section -->
+        <section class="main-content">
+            <p>നിത്യനായ ദൈവമേ ഇന്നേദിവസം ലോകമാസകലം അർപ്പിക്കപ്പെടുന്ന എല്ലാ ദിവ്യബലികളോടും ചേർത്ത് 
+            പ്രിയപുത്രനായ ഈശോമിശിഹായുടെ തിരുരക്തം ശുദ്ധീകരണസ്ഥലത്ത ആത്മാക്കൾക്ക് വേണ്ടിയും
+            ലോകമാസകലമുള്ള പാപികൾക്കുവേണ്ടിയും എൻറെ ഭവനത്തിലെയും കുടുംബത്തിലെയും പാപികൾക്കുവേണ്ടി 
+            ഞാൻ അർപ്പിക്കുന്നു </p>
+            <p class="right-align">ആമ്മേൻ</p>
+        </section>
+
+        
+
+        <!-- Add the required section tag here -->
+        <b:section class='main-section' id='main' maxwidgets='1' name='Main Section' showaddelement='yes'/>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &#169; TauOr. All Rights Reserved.
+    </footer>
+</body>
+</html>
