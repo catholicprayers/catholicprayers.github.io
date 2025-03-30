@@ -136,6 +136,15 @@ header .subtitle {
 .main-content h2 {
     font-size: 1.8em;
     color: #333;
+    text-align: justify;
+}
+
+.main-content h2.right-align {
+    text-align: right; /* Align the paragraph to the right */
+}
+
+.main-content h2.center-align {
+    text-align: center; /* Align the paragraph to the center */
 }
 
 .main-content p {
