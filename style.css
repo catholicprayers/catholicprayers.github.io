@@ -149,6 +149,10 @@ header .subtitle {
     text-align: right; /* Align the paragraph to the right */
 }
 
+.main-content p.center-align {
+    text-align: center; /* Align the paragraph to the center */
+}
+
 .poem {
   white-space: pre-wrap; /* Preserves line breaks */
   font-family: "Noto Sans Malayalam", sans-serif; /* Ensures proper Malayalam font */
