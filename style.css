@@ -150,7 +150,7 @@ header .subtitle {
 }
 
 .poem {
-  white-space: pre-line; /* Preserves line breaks */
+  white-space: pre-wrap; /* Preserves line breaks */
   font-family: "Noto Sans Malayalam", sans-serif; /* Ensures proper Malayalam font */
   font-size: 1.2em; /* Matches main content */
   line-height: 1.6; /* Matches main content */
