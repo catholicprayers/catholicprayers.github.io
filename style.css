@@ -149,6 +149,21 @@ header .subtitle {
     text-align: right; /* Align the paragraph to the right */
 }
 
+.poem {
+  white-space: pre-line; /* Preserves line breaks */
+  font-family: "Noto Sans Malayalam", sans-serif; /* Ensures proper Malayalam font */
+  font-size: 1.2em; /* Matches main content */
+  line-height: 1.6; /* Matches main content */
+  color: #555; /* Matches text color */
+  text-align: justify; /* Aligns text like main content */
+  margin: 20px auto; /* Centered block with spacing */
+  padding: 15px; /* Slightly increased padding */
+  background-color: #f9f9f9; /* Light background */
+  border-radius: 10px; /* Rounded edges */
+  max-width: 700px; /* Slightly wider for readability */
+  display: block; /* Ensures proper spacing */
+}
+
 /* Image Grid */
 .image-grid {
     display: grid;
