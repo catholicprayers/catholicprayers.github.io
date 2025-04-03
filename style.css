@@ -109,9 +109,9 @@ nav {
     font-size: 1.1em;
 }
 
-.nav-links a:hover {
+/* .nav-links a:hover {
     background-color: #5e3a08;
-}
+} */
 
 /* Show menu when checkbox is checked */
 .nav-toggle:checked ~ .nav-links {
