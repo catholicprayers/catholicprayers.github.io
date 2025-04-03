@@ -10,145 +10,37 @@
 </head>
 <body>
     <div class='content'>
+        
        /* General Navigation Styling */
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #930064;
-            padding: 10px 20px;
-            position: relative;
-        }
+        <nav>
+            <!-- Home Button (Always Visible) -->
+            <a href="index.html" class="home-button">Home</a>
         
-        /* Home Button (Always Visible) */
-        .home-button {
-            color: white;
-            font-size: 1.2em;
-            text-decoration: none;
-            padding: 10px 15px;
-        }
+            <!-- Hidden checkbox toggles the menu -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            
+            <!-- Hamburger icon -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
         
-        /* Hamburger Icon */
-        .nav-toggle {
-            display: none; /* Hide checkbox */
-        }
+            <!-- Navigation links (Collapsible) -->
+            <ul class="nav-links">
+                <li><a href="#prayer1">Prayer 1</a></li>
+                <li><a href="#prayer2">Prayer 2</a></li>
+                <li><a href="#prayer3">Prayer 3</a></li>
+                <li><a href="#prayer4">Prayer 4</a></li>
+            </ul>
         
-        .nav-toggle-label {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            width: 30px;
-            height: 25px;
-            position: relative;
-            margin-left: 10px; /* Space between Home and Menu */
-        }
-        
-        .nav-toggle-label span,
-        .nav-toggle-label span::before,
-        .nav-toggle-label span::after {
-            display: block;
-            background: white;
-            height: 3px;
-            width: 100%;
-            border-radius: 2px;
-            position: absolute;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-toggle-label span {
-            top: 50%;
-            margin-top: -1.5px;
-        }
-        
-        .nav-toggle-label span::before {
-            content: '';
-            top: -8px;
-        }
-        
-        .nav-toggle-label span::after {
-            content: '';
-            top: 8px;
-        }
-        
-        /* Navigation Links (Dropdown) */
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none; /* Hidden by default */
-            position: absolute;
-            top: 50px;
-            left: 10px;
-            background-color: #930064;
-            width: auto;
-            border-radius: 5px;
-        }
-        
-        .nav-links li {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .nav-links li:first-child {
-            border-top: none;
-        }
-        
-        .nav-links a {
-            display: block;
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-        
-        .nav-links a:hover {
-            background-color: #5e3a08;
-        }
-        
-        /* Show menu when checkbox is checked */
-        .nav-toggle:checked ~ .nav-links {
-            display: block;
-        }
-        
-        /* Animate hamburger to "X" when active */
-        .nav-toggle:checked + .nav-toggle-label span {
-            background: transparent;
-        }
-        
-        .nav-toggle:checked + .nav-toggle-label span::before {
-            transform: rotate(45deg);
-            top: 0;
-        }
-        
-        .nav-toggle:checked + .nav-toggle-label span::after {
-            transform: rotate(-45deg);
-            top: 0;
-        }
-        
-        /* Search Bar */
-        .search-bar {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .search-bar input {
-            padding: 8px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        
-        .search-bar button {
-            padding: 8px 12px;
-            font-size: 1em;
-            background-color: #ffffff;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .search-bar button:hover {
-            background-color: #714b1b;
-        }
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <form action="#" method="GET">
+                    <input name="q" placeholder="Search..." type="text" />
+                    <button type="submit">🔍</button>
+                </form>
+            </div>
+        </nav>
+
 
 
         <!-- Header Section -->
