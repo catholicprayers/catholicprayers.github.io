@@ -22,7 +22,14 @@ nav {
     position: relative;
 }
 
-/* Home Button (Always Visible) */
+/* Container for Home & Menu */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between Home and Hamburger */
+}
+
+/* Home Button */
 .home-button {
     color: white;
     font-size: 1.2em;
@@ -30,7 +37,7 @@ nav {
     padding: 10px 15px;
 }
 
-/* Hamburger Icon */
+/* Hamburger Menu */
 .nav-toggle {
     display: none; /* Hide checkbox */
 }
@@ -42,7 +49,6 @@ nav {
     width: 30px;
     height: 25px;
     position: relative;
-    margin-left: 10px; /* Space between Home and Menu */
 }
 
 .nav-toggle-label span,
@@ -72,12 +78,12 @@ nav {
     top: 8px;
 }
 
-/* Navigation Links (Dropdown) */
+/* Navigation Links */
 .nav-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     top: 50px;
     left: 10px;
@@ -88,10 +94,6 @@ nav {
 
 .nav-links li {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.nav-links li:first-child {
-    border-top: none;
 }
 
 .nav-links a {
@@ -106,27 +108,12 @@ nav {
     background-color: #5e3a08;
 }
 
-/* Show menu when checkbox is checked */
+/* Show menu when checked */
 .nav-toggle:checked ~ .nav-links {
     display: block;
 }
 
-/* Animate hamburger to "X" when active */
-.nav-toggle:checked + .nav-toggle-label span {
-    background: transparent;
-}
-
-.nav-toggle:checked + .nav-toggle-label span::before {
-    transform: rotate(45deg);
-    top: 0;
-}
-
-.nav-toggle:checked + .nav-toggle-label span::after {
-    transform: rotate(-45deg);
-    top: 0;
-}
-
-/* Search Bar */
+/* Search Bar (Positioned on the Right) */
 .search-bar {
     display: flex;
     align-items: center;
@@ -151,6 +138,7 @@ nav {
 .search-bar button:hover {
     background-color: #714b1b;
 }
+
 
 /* Header */
 header {
