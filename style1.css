@@ -22,19 +22,19 @@ nav {
     position: relative;
 }
 
-/* Container for Home & Menu */
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust spacing between Home and Hamburger */
-}
-
 /* Home Button */
 .home-button {
     color: white;
     font-size: 1.2em;
     text-decoration: none;
     padding: 10px 15px;
+}
+
+/* Container for Home & Menu */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 /* Hamburger Menu */
@@ -78,7 +78,7 @@ nav {
     top: 8px;
 }
 
-/* Navigation Links */
+/* Navigation Links (Hidden by Default) */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -92,28 +92,12 @@ nav {
     border-radius: 5px;
 }
 
-.nav-links li {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.nav-links a {
-    display: block;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-.nav-links a:hover {
-    background-color: #5e3a08;
-}
-
 /* Show menu when checked */
-.nav-toggle:checked ~ .nav-links {
+.nav-toggle:checked + .nav-links {
     display: block;
 }
 
-/* Search Bar (Positioned on the Right) */
+/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
