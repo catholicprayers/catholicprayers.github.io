@@ -2,59 +2,156 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans Malayalam', sans-serif;
     display: flex;
-    flex-direction: column; /* Flexbox layout for sticky footer */
+    flex-direction: column;
 }
 
 /* Content Wrapper */
 .content {
-    flex: 1; /* Allows the content to grow and push the footer down */
+    flex: 1;
 }
 
-/* Navigation Bar */
+/* General Navigation Styling */
 nav {
     display: flex;
-    justify-content: space-between; /* Space between links and search bar */
     align-items: center;
+    justify-content: space-between;
     background-color: #930064;
-    padding: 7px 20px;
+    padding: 10px 20px;
+    position: relative;
 }
 
-/* Navigation Links */
+/* Group container for Hamburger Icon and Home Button */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Adjust spacing as needed */
+}
+
+/* Home Button (Always Visible) */
+.home-button {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+/* Hamburger Icon */
+.nav-toggle {
+    display: none; /* Hide checkbox */
+}
+
+.nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    /* Removed margin-left to ensure proper alignment within .nav-left */
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span {
+    top: 50%;
+    margin-top: -1.5px;
+}
+
+.nav-toggle-label span::before {
+    content: '';
+    top: -8px;
+}
+
+.nav-toggle-label span::after {
+    content: '';
+    top: 8px;
+}
+
+/* Navigation Links (Dropdown) */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: #930064;
+    width: auto;
+    border-radius: 5px;
+}
+
+.nav-links li {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links li:first-child {
+    border-top: none;
+}
+
 .nav-links a {
+    display: block;
+    padding: 10px 20px;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 15px;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .nav-links a:hover {
     background-color: #5e3a08;
 }
 
+/* Show menu when checkbox is checked */
+.nav-toggle:checked ~ .nav-links {
+    display: block;
+}
+
+/* Animate hamburger to "X" when active */
+.nav-toggle:checked + .nav-toggle-label span {
+    background: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
 /* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .search-bar input {
-    padding: 5px 10px;
+    padding: 8px;
     font-size: 1em;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    outline: none;
+    border-radius: 5px;
 }
 
 .search-bar button {
-    padding: 5px 10px;
+    padding: 8px 12px;
     font-size: 1em;
     background-color: #ffffff;
-    color: white;
     border: none;
-    border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
 
@@ -62,130 +159,138 @@ nav {
     background-color: #714b1b;
 }
 
-/* Header Section */
+/* Header */
 header {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 20px;
     background-color: #008080;
 }
 
 header .image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Make the image circular */
-    overflow: hidden; /* Ensure content inside the circle stays within bounds */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 header .image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image fills the circle */
+    object-fit: cover;
 }
 
 header .title {
-    margin-top: 15px; /* Add spacing between the image and title */
-    text-align: center; /* Center-align the text */
+    margin-top: 15px;
     font-size: 2em;
     font-weight: bold;
-    color: #ffffff;
+    color: white;
     font-family: 'Lucida Fax', serif;
 }
 
 header .subtitle {
     font-size: 1.2em;
     font-weight: bold;
-    color: #ffffff;
+    color: white;
     margin-top: 5px;
-    text-align: center; /* Center-align subtitle */
     font-family: 'Bodoni MT Black', serif;
 }
 
-/* Main Content Section */
+/* Main Content */
 .main-content {
     padding: 20px;
     background-color: #f4f4f4;
     margin: 20px;
-    border-radius: 10px; /* Optional: Rounded corners for the content section */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for content section */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-content h2 {
     font-size: 1.8em;
-    color: #333333;
-    margin-bottom: 20px;
-    text-align: left; /* Center-align the heading */
+    color: #333;
+    text-align: justify;
+}
+
+.main-content h2.right-align {
+    text-align: right;
+}
+
+.main-content h2.center-align {
+    text-align: center;
 }
 
 .main-content p {
     font-size: 1.2em;
     line-height: 1.6;
-    color: #555555;
-    margin-bottom: 10px;
-    text-align: justify; /* Align text to both sides */
+    color: #555;
+    text-align: justify;
 }
 
 .main-content p.right-align {
-    text-align: right; /* Align the paragraph to the right */
+    text-align: right;
 }
 
+.main-content p.center-align {
+    text-align: center;
+}
+
+/* Poem Section */
+.poem {
+  white-space: pre-wrap;
+  font-family: "Noto Sans Malayalam", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 700px;
+  display: block;
+}
 
 /* Image Grid */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns in the grid */
-    grid-gap: 20px; /* Space between images */
-    justify-items: center; /* Center images horizontally */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
     padding: 20px;
     margin-top: 40px;
 }
 
 .image-item {
-    position: relative; /* Allow absolute positioning of the link */
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
     height: 250px;
-}
-
-.image-item a {
-    display: block; /* Make the link take up the whole area */
-    height: 100%; /* Make the anchor tag fill the entire container */
-    width: 100%; /* Make the anchor tag fill the entire container */
-    position: relative; /* Needed for absolute positioning of the text */
+    position: relative;
 }
 
 .image-item img {
-    width: 100%; /* Ensure image takes full width */
-    height: 100%; /* Ensure image takes full height */
-    object-fit: cover; /* Ensures image fills the container proportionally */
-    border-radius: 10px; /* Optional: Rounded corners */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .image-item a span {
-    position: absolute; /* Position the text inside the image */
-    bottom: 10px; /* Distance from the bottom of the image */
+    position: absolute;
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%); /* Center the text horizontally */
+    transform: translateX(-50%);
     font-size: 1.2em;
-    color: #ffffff; /* Text color */
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Background for readability */
-    padding: 5px 10px; /* Optional: Padding around text */
-    border-radius: 5px; /* Optional: Rounded corners for the link */
-}
-
-.image-item a:hover {
-    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .image-item a span:hover {
-    text-decoration: underline;
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+    background-color: rgba(0, 0, 0, 0.7);
 }
-
 
 /* Footer */
 footer {
@@ -193,4 +298,40 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 1024px) {
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .image-item {
+        width: 100%;
+        max-width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .main-content h2 {
+        font-size: 1.5em;
+    }
+
+    .main-content p {
+        font-size: 1em;
+    }
+
+    header .title {
+        font-size: 1.8em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
 }
