@@ -133,10 +133,11 @@ header .subtitle {
     text-align: right; /* Align the paragraph to the right */
 }
 
-/* Image Grid Base (Tablet Portrait & fallback) */
+
+/* Image Grid */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns in the grid */
     grid-gap: 20px; /* Space between images */
     justify-items: center; /* Center images horizontally */
     padding: 20px;
@@ -185,42 +186,6 @@ header .subtitle {
     background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
 }
 
-/* Responsive Media Queries */
-
-/* Mobile Portrait: 2 columns */
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobile Landscape: 3 columns */
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-    .image-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Tablet Portrait: 3 columns */
-@media only screen and (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
-    .image-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Tablet Landscape: 4 columns */
-@media only screen and (min-width: 601px) and (max-width: 900px) and (orientation: landscape) {
-    .image-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* PC/Desktop and larger tablets (defaulting to 4 columns) */
-@media only screen and (min-width: 901px) {
-    .image-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
 
 /* Footer */
 footer {
