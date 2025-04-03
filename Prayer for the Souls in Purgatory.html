@@ -9,24 +9,34 @@
 </head>
 <body>
     <div class='content'>
-        <!-- Navigation Bar -->
-        <div class='content'>
-    <!-- Navigation Bar -->
-    <!-- Navigation Bar -->
+        
+   <!-- /* General Navigation Styling */ -->
         <nav>
-            <div class='nav-links'>
-                <a href='index.html'>Home</a>
-                <a href='#prayers'>Prayers</a>
-            </div>
-            <div class='search-bar'>
-                <form action='#' method='GET'>
-                    <input name='q' placeholder='Search...' type='text'/>
-                    <button type='submit'>🔍</button>
-                </form>
-            </div>
-        </nav>
-</div>
-
+    <!-- Hidden checkbox toggles the menu (placed as direct child of nav) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    
+    <!-- Container for Hamburger Icon and Home Button -->
+    <div class="nav-left">
+        <!-- Hamburger icon -->
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        
+        <!-- Home Button (Always Visible) -->
+        <a href="index.html" class="home-button">Home</a>
+    </div>
+    
+    <!-- Navigation links (Collapsible) -->
+    <ul class="nav-links">
+        <li><a href="Karunayude japamala.html">കരുണയുടെ ജപമാല </a></li>
+        <li><a href="ജപമാല.html">ജപമാല</a></li>
+        <li><a href="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html">പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന</a></li>
+        <li><a href="കുരിശിൻ്റെ വഴി.html">കുരിശിൻ്റെ വഴി</a></li>
+        <li><a href="Prayer for the Souls in Purgatory.html">ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന</a></li>
+        <li><a href="prayer after holy communion.html">വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന</a></li>
+        <li><a href="prayer to St. Cupertino.html">വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം</a></li>
+    </ul>
+</nav>
 
         <!-- Header Section -->
         <header>
