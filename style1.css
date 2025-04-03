@@ -12,39 +12,44 @@ html, body {
     flex: 1;
 }
 
-/* Navigation Bar */
+/* General Navigation Styling */
 nav {
-    position: relative; /* Needed for absolute positioning of dropdown menu */
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #930064;
     padding: 10px 20px;
-    flex-wrap: wrap;
+    position: relative;
 }
 
-/* Collapsible Navigation Setup */
+/* Home Button (Always Visible) */
+.home-button {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 15px;
+}
 
-/* Hidden checkbox toggle for hamburger */
+/* Hamburger Icon */
 .nav-toggle {
-    display: none;
+    display: none; /* Hide checkbox */
 }
 
-/* Hamburger icon styles */
 .nav-toggle-label {
-    display: block;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
     width: 30px;
     height: 25px;
     position: relative;
-    z-index: 2; /* Ensure the icon is above the menu */
+    margin-left: 10px; /* Space between Home and Menu */
 }
 
 .nav-toggle-label span,
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
     display: block;
-    background: #fff;
+    background: white;
     height: 3px;
     width: 100%;
     border-radius: 2px;
@@ -67,17 +72,18 @@ nav {
     top: 8px;
 }
 
-/* Navigation Links for Collapsible Menu */
+/* Navigation Links (Dropdown) */
 .nav-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: none; /* Hidden by default, shown when toggled */
-    width: 100%;
-    background-color: #930064;
+    display: none; /* Hidden by default */
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 50px;
+    left: 10px;
+    background-color: #930064;
+    width: auto;
+    border-radius: 5px;
 }
 
 .nav-links li {
@@ -100,7 +106,7 @@ nav {
     background-color: #5e3a08;
 }
 
-/* Toggle menu when checkbox is checked */
+/* Show menu when checkbox is checked */
 .nav-toggle:checked ~ .nav-links {
     display: block;
 }
@@ -118,27 +124,6 @@ nav {
 .nav-toggle:checked + .nav-toggle-label span::after {
     transform: rotate(-45deg);
     top: 0;
-}
-
-/* Responsive Adjustments for Navigation */
-@media (min-width: 768px) {
-    /* On larger screens, hide the hamburger and display links horizontally */
-    .nav-toggle-label {
-        display: none;
-    }
-    .nav-links {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        background: transparent;
-        width: auto;
-    }
-    .nav-links li {
-        border: none;
-    }
-    .nav-links a {
-        padding: 10px 15px;
-    }
 }
 
 /* Search Bar */
