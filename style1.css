@@ -1,0 +1,345 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content Wrapper */
+.content {
+    flex: 1;
+}
+
+/* Navigation Bar */
+nav {
+    position: relative; /* Needed for absolute positioning of dropdown menu */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #930064;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+/* Collapsible Navigation Setup */
+
+/* Hidden checkbox toggle for hamburger */
+.nav-toggle {
+    display: none;
+}
+
+/* Hamburger icon styles */
+.nav-toggle-label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 2; /* Ensure the icon is above the menu */
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: #fff;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span {
+    top: 50%;
+    margin-top: -1.5px;
+}
+
+.nav-toggle-label span::before {
+    content: '';
+    top: -8px;
+}
+
+.nav-toggle-label span::after {
+    content: '';
+    top: 8px;
+}
+
+/* Navigation Links for Collapsible Menu */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Hidden by default, shown when toggled */
+    width: 100%;
+    background-color: #930064;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.nav-links li {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links li:first-child {
+    border-top: none;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.nav-links a:hover {
+    background-color: #5e3a08;
+}
+
+/* Toggle menu when checkbox is checked */
+.nav-toggle:checked ~ .nav-links {
+    display: block;
+}
+
+/* Animate hamburger to "X" when active */
+.nav-toggle:checked + .nav-toggle-label span {
+    background: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Responsive Adjustments for Navigation */
+@media (min-width: 768px) {
+    /* On larger screens, hide the hamburger and display links horizontally */
+    .nav-toggle-label {
+        display: none;
+    }
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        width: auto;
+    }
+    .nav-links li {
+        border: none;
+    }
+    .nav-links a {
+        padding: 10px 15px;
+    }
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-bar input {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    font-size: 1em;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #714b1b;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #008080;
+}
+
+header .image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+header .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header .title {
+    margin-top: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    font-family: 'Lucida Fax', serif;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    margin-top: 5px;
+    font-family: 'Bodoni MT Black', serif;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h2 {
+    font-size: 1.8em;
+    color: #333;
+    text-align: justify;
+}
+
+.main-content h2.right-align {
+    text-align: right;
+}
+
+.main-content h2.center-align {
+    text-align: center;
+}
+
+.main-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+}
+
+.main-content p.right-align {
+    text-align: right;
+}
+
+.main-content p.center-align {
+    text-align: center;
+}
+
+/* Poem Section */
+.poem {
+  white-space: pre-wrap;
+  font-family: "Noto Sans Malayalam", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 700px;
+  display: block;
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.image-item {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.image-item a span {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.image-item a span:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+footer {
+    background-color: #14012b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 1024px) {
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .image-item {
+        width: 100%;
+        max-width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .main-content h2 {
+        font-size: 1.5em;
+    }
+
+    .main-content p {
+        font-size: 1em;
+    }
+
+    header .title {
+        font-size: 1.8em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+}
