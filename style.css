@@ -324,13 +324,7 @@ footer {
     }
 
     .main-content p {
-    margin: 0 !important;
-    padding: 0 !important;
-    text-indent: 0 !important;
-    white-space: normal !important;
-    /* Force the last line (and sometimes all lines) to align left */
-    text-align-last: left;
-    -webkit-text-align-last: left;
+    font-size: 1em;
   }
 
     header .title {
