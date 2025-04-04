@@ -325,6 +325,10 @@ footer {
 
     .main-content p {
         font-size: 1em;
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+        white-space: normal;
     }
 
     header .title {
@@ -335,3 +339,4 @@ footer {
         font-size: 1em;
     }
 }
+
