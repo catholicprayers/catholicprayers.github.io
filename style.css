@@ -1,5 +1,5 @@
 /* =========================
-   CatholicPrayers
+   CatholicPrayers — Modern UI
 ========================= */
 
 :root{
@@ -17,7 +17,7 @@
   --shadow: 0 12px 30px rgba(17,24,39,.10);
   --shadow2: 0 18px 44px rgba(17,24,39,.14);
 
-  --radius: 18px;
+  --radius: 22px;
   --max: 1120px;
 }
 
@@ -48,7 +48,6 @@ body{
   color:var(--text);
   background:var(--bg);
   line-height:1.65;
-  padding-bottom:40px;
 }
 
 /* background glow */
@@ -58,346 +57,232 @@ body::before{
   inset:0;
   z-index:-1;
   pointer-events:none;
-
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(200,169,81,.22), transparent 55%),
-    radial-gradient(900px 500px at 100% 10%, rgba(37,99,235,.18), transparent 45%),
+    radial-gradient(1200px 600px at 20% -10%, rgba(200,169,81,.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 10%, rgba(37,99,235,.14), transparent 45%),
     var(--bg);
 }
 
-a{
-  color:var(--link);
-  text-decoration:none;
-}
+a{ color:var(--link); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 
-/* =========================
-   CONTENT WRAPPER
-========================= */
-
-.content{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:18px 16px 0;
+/* ===== Outer shell: rounded like tiles, no harsh edges ===== */
+.shell{
+  max-width: var(--max);
+  margin: 22px auto 18px;
+  padding: 16px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow2);
 }
 
-/* =========================
-   NAV
-========================= */
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-
-  margin:0 -16px 18px;
-  padding:12px 16px;
-
-  background:var(--surface);
-  border-bottom:1px solid var(--border);
+/* ===== Topbar (no hamburger) ===== */
+.topbar{
+  background: transparent;
+  border: 0;
+  padding: 4px 0 10px;
+  margin: 0;
 }
 
-.nav-left{
+.topbar-left{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap: 10px;
 }
 
-.nav-toggle{
-  position:absolute;
-  opacity:0;
-}
-
-.nav-toggle-label{
-  width:44px;
-  height:40px;
+/* Pills */
+.pill-button{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:var(--card);
-  cursor:pointer;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 14px;
+  transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after{
-  content:"";
-  display:block;
-  width:18px;
-  height:2px;
-  background:var(--text);
-  border-radius:2px;
-  position:relative;
-}
-
-.nav-toggle-label span::before{
-  position:absolute;
-  top:-6px;
-  left:0;
-}
-
-.nav-toggle-label span::after{
-  position:absolute;
-  top:6px;
-  left:0;
-}
-
-/* home button */
-
-.home-button{
-  display:inline-flex;
-  align-items:center;
-  padding:8px 12px;
-
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--card);
-
-  color:var(--text);
-  font-weight:800;
-  font-size:14px;
-}
-
-.home-button:hover{
+.pill-button:hover{
   text-decoration:none;
-  border-color:rgba(200,169,81,.45);
-  transform:translateY(-1px);
+  transform: translateY(-1px);
+  border-color: rgba(200,169,81,.45);
+  box-shadow: var(--shadow);
 }
 
-/* nav links */
+.pill-icon{ font-size: 16px; line-height: 1; }
 
-.nav-links{
-  list-style:none;
-  padding:12px 0 0;
-  margin:10px 0 0;
+/* ===== Search area ===== */
+.search-wrap{
+  margin: 8px 0 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
+.search-title{
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.search-bar{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.nav-links a{
-  display:inline-flex;
-  padding:8px 12px;
-
-  border-radius:999px;
-  border:1px solid transparent;
-
-  color:var(--text);
-  font-weight:750;
-  font-size:14px;
-}
-
-.nav-links a:hover{
-  text-decoration:none;
-  background:rgba(200,169,81,.12);
-  border-color:rgba(200,169,81,.35);
-  transform:translateY(-1px);
-}
-
-/* mobile nav */
-
-@media (max-width:820px){
-
-  .nav-links{
-    display:none;
-    padding:14px;
-
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    background:var(--surface);
-  }
-
-  .nav-toggle:checked ~ .nav-links{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-  border-radius:calc(var(--radius) + 8px);
-  border:1px solid var(--border);
-  background:var(--surface);
-  box-shadow:var(--shadow2);
-
-  padding:22px;
-
-  display:flex;
-  gap:18px;
   align-items:center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
 
-  position:relative;
+.search-bar input{
+  width:100%;
+  border:0;
+  outline:none;
+  background:transparent;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.search-icon{ opacity: .8; }
+
+.search-count{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Hero header ===== */
+.hero{
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display:flex;
+  gap: 16px;
+  align-items:center;
   overflow:hidden;
+  position: relative;
+  margin-bottom: 12px;
 }
 
-/* glow */
-
-header::before{
+.hero::before{
   content:"";
   position:absolute;
   inset:-40px;
-
   background:
-    radial-gradient(500px 220px at 15% 15%, rgba(200,169,81,.18), transparent 60%),
-    radial-gradient(500px 220px at 85% 25%, rgba(37,99,235,.14), transparent 62%);
-
+    radial-gradient(500px 220px at 15% 15%, rgba(200,169,81,.14), transparent 60%),
+    radial-gradient(500px 220px at 85% 25%, rgba(37,99,235,.10), transparent 62%);
   pointer-events:none;
 }
 
-header .image img{
-  width:84px;
-  height:84px;
+.hero .image{
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .image img{
+  width:100%;
+  height:100%;
   object-fit:cover;
-
-  border-radius:18px;
-  border:1px solid var(--border);
-
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
 }
 
-header .title{
-  font-weight:900;
-  letter-spacing:.06em;
-  font-size:22px;
+.hero .title{
+  font-weight: 900;
+  letter-spacing: .06em;
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+.hero .subtitle{
+  margin-top: 6px;
+  font-weight: 850;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 12px;
 }
 
-header .subtitle{
-  margin-top:6px;
-  font-weight:850;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-
-  color:var(--muted);
-  font-size:12px;
-}
-
-/* =========================
-   PRAYER CARDS
-========================= */
-
+/* ===== Prayer list (one per row) ===== */
 .image-grid{
-  margin-top:18px;
-  display:flex;           /* change grid → flex */
-  flex-direction:column;  /* one item per row */
-  gap:16px;
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  padding: 6px 0 2px;
+  margin: 0;
 }
 
-/* remove tile box */
-.image-item{
-  background:transparent;
-  border:none;
-  box-shadow:none;
-}
+.image-item{ width:100%; }
 
-/* card layout */
 .prayer-card{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap: 14px;
 
   width:100%;
-  padding:22px;
+  padding: 16px;
+  border-radius: 22px;
 
-  border-radius:36px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow2);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 
-  text-decoration:none;
-  color:inherit;
-
-  transition:transform .16s ease,
-             box-shadow .16s ease,
-             border-color .16s ease;
+  color: inherit;
+  transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
 }
 
-/* thumbnail image */
-.prayer-card img{
-  width:90px;
-  height:90px;
-  object-fit:cover;
-
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
-
-  flex-shrink:0;
-}
-
-/* prayer title */
-.prayer-title{
-  font-weight:900;
-  font-size:20px;
-  line-height:1.2;
-  letter-spacing:-0.02em;
-}
-
-/* hover effect */
 .prayer-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(200,169,81,.45);
-  box-shadow:0 22px 54px rgba(0,0,0,.16);
+  transform: translateY(-2px);
+  border-color: rgba(200,169,81,.45);
+  box-shadow: var(--shadow2);
 }
 
-/* mobile */
-@media (max-width:640px){
-
-  .prayer-card{
-    padding:16px;
-    border-radius:26px;
-    gap:14px;
-  }
-
-  .prayer-card img{
-    width:64px;
-    height:64px;
-    border-radius:16px;
-  }
-
-  .prayer-title{
-    font-size:20px;
-  }
-
+.prayer-card img{
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  flex: 0 0 auto;
 }
 
-/* mobile */
-
-@media (max-width:640px){
-
-  .prayer-card{
-    padding:16px;
-    border-radius:28px;
-    gap:14px;
-  }
-
-  .prayer-card img{
-    width:72px;
-    height:72px;
-    border-radius:18px;
-  }
-
-  .prayer-title{
-    font-size:22px;
-  }
+/* Smaller font size */
+.prayer-title{
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* Mobile */
+@media (max-width: 640px){
+  .shell{ margin: 12px 10px; padding: 12px; border-radius: 22px; }
+  .pill-button{ padding: 9px 12px; font-size: 13px; }
+  .prayer-card{ padding: 14px; border-radius: 18px; }
+  .prayer-card img{ width: 58px; height: 58px; border-radius: 14px; }
+  .prayer-title{ font-size: 17px; }
+}
 
+/* Footer */
 footer{
-  max-width:var(--max);
-  margin:18px auto 0;
-  padding:14px 16px;
-
-  color:var(--muted);
+  max-width: var(--max);
+  margin: 0 auto 18px;
+  padding: 12px 16px;
+  color: var(--muted);
   text-align:center;
 }
