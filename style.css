@@ -283,10 +283,6 @@ header .subtitle{
    PRAYER CARDS
 ========================= */
 
-/* =========================
-   PRAYER CARDS (single column)
-========================= */
-
 .image-grid{
   margin-top:18px;
   display:flex;           /* change grid → flex */
@@ -339,7 +335,7 @@ header .subtitle{
 /* prayer title */
 .prayer-title{
   font-weight:900;
-  font-size:24px;
+  font-size:20px;
   line-height:1.2;
   letter-spacing:-0.02em;
 }
