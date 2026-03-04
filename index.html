@@ -12,94 +12,99 @@
 </head>
 <body>
     <div class='content'>
-        
-<!-- /* General Navigation Styling */ -->
-        <nav>
-    <!-- Hidden checkbox toggles the menu (placed as direct child of nav) -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-    
-    <!-- Container for Hamburger Icon and Home Button -->
-    <div class="nav-left">
-        <!-- Hamburger icon -->
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
-        
-        <!-- Home Button (Always Visible) -->
-        <a href="index.html" class="home-button">Home</a>
-    </div>
-    
-    <!-- Navigation links (Collapsible) -->
-    <ul class="nav-links">
-        <li><a href="Karunayude japamala.html">കരുണയുടെ ജപമാല </a></li>
-        <li><a href="ജപമാല.html">ജപമാല</a></li>
-        <li><a href="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html">പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന</a></li>
-        <li><a href="കുരിശിൻ്റെ വഴി.html">കുരിശിൻ്റെ വഴി</a></li>
-        <li><a href="Prayer for the Souls in Purgatory.html">ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന</a></li>
-        <li><a href="prayer after holy communion.html">വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന</a></li>
-        <li><a href="prayer to St. Cupertino.html">വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം</a></li>
-    </ul>
-</nav>
-         <!-- Header Section -->
-         <header>
-             <div class="image">
-                 <img src="Jesus Christ.png" alt="Jesus Christ">
-             </div>
-             <div class="title">
-                 CATHOLIC PRAYERS
-                 <div class="subtitle">MALAYALAM</div>
-             </div>
-         </header>
-        
 
-        <!-- Image Grid -->
+        <nav>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+            <div class="nav-left">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                </label>
+
+                <a href="index.html" class="home-button">Home</a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="Karunayude japamala.html">കരുണയുടെ ജപമാല </a></li>
+                <li><a href="ജപമാല.html">ജപമാല</a></li>
+                <li><a href="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html">പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന</a></li>
+                <li><a href="കുരിശിൻ്റെ വഴി.html">കുരിശിൻ്റെ വഴി</a></li>
+                <li><a href="Prayer for the Souls in Purgatory.html">ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന</a></li>
+                <li><a href="prayer after holy communion.html">വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന</a></li>
+                <li><a href="prayer to St. Cupertino.html">വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header Section -->
+        <header>
+            <div class="image">
+                <img src="Jesus Christ.png" alt="Jesus Christ">
+            </div>
+            <div class="title">
+                CATHOLIC PRAYERS
+                <div class="subtitle">MALAYALAM</div>
+            </div>
+        </header>
+
+        <!-- Prayer Cards (replaces mosaic tiles) -->
         <div class='image-grid'>
+
             <div class='image-item'>
-                <a href='Karunayude japamala.html'>
+                <a class="prayer-card" href='Karunayude japamala.html' aria-label="കരുണയുടെ ജപമാല">
                     <img alt='കരുണയുടെ ജപമാല' src='/images/index/1.png'/>
+                    <div class="prayer-title">കരുണയുടെ ജപമാല</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='ജപമാല.html'>
+                <a class="prayer-card" href='ജപമാല.html' aria-label="ജപമാല">
                     <img alt='ജപമാല' src='/images/index/2.png'/>
+                    <div class="prayer-title">ജപമാല</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html'>
+                <a class="prayer-card" href='പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html' aria-label="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന">
                     <img alt='പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന' src='/images/index/3.png'/>
+                    <div class="prayer-title">പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='കുരിശിൻ്റെ വഴി.html'>
-                <img alt='കുരിശിൻ്റെ വഴി' src='/images/index/കുരിശിൻ്റെ വഴി.png'/>
+                <a class="prayer-card" href='കുരിശിൻ്റെ വഴി.html' aria-label="കുരിശിൻ്റെ വഴി">
+                    <img alt='കുരിശിൻ്റെ വഴി' src='/images/index/കുരിശിൻ്റെ വഴി.png'/>
+                    <div class="prayer-title">കുരിശിൻ്റെ വഴി</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='Prayer for the Souls in Purgatory.html'>
+                <a class="prayer-card" href='Prayer for the Souls in Purgatory.html' aria-label="ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന">
                     <img alt='Prayer for the Souls in Purgatory' src='/images/index/4.png'/>
+                    <div class="prayer-title">ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='prayer after holy communion.html'>
+                <a class="prayer-card" href='prayer after holy communion.html' aria-label="വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന">
                     <img alt='Prayer' src='prayer.png'/>
+                    <div class="prayer-title">വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന</div>
                 </a>
             </div>
+
             <div class='image-item'>
-                <a href='prayer to St. Cupertino.html'>
+                <a class="prayer-card" href='prayer to St. Cupertino.html' aria-label="വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം">
                     <img alt='St. Joseph of Cupertino' src='7.png'/>
+                    <div class="prayer-title">വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം</div>
                 </a>
             </div>
-<!--             <div class='image-item'>
-                <img alt='Prayers for Forgiveness' src='https://via.placeholder.com/300'/>
-                <a href='section8.html'>Prayers for Forgiveness</a>
-            </div> -->
+
         </div>
 
-        <!-- Add the required section tag here -->
-        <b:section class='main-section' id='main' maxwidgets='1' name='Main Section' showaddelement='yes'/>
+        <!-- Removed Blogger section (causes blank space on GitHub Pages) -->
+        <!-- <b:section class='main-section' id='main' maxwidgets='1' name='Main Section' showaddelement='yes'/> -->
+
     </div>
 
-    <!-- Footer -->
     <footer>
         &#169; TauOr. All Rights Reserved.
     </footer>
