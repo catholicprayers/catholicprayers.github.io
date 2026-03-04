@@ -278,6 +278,87 @@ a:hover{ text-decoration:underline; }
   .prayer-title{ font-size: 17px; }
 }
 
+/* PRAYERS DROPDOWN */
+
+.topbar{
+  position: relative;
+}
+
+.pill-button-btn{
+  cursor: pointer;
+}
+
+.pill-caret{
+  margin-left:6px;
+  font-size:12px;
+}
+
+.prayers-menu{
+  display:none;
+  position:absolute;
+  top:55px;
+  left:0;
+
+  width:340px;
+
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow2);
+
+  padding:10px;
+  z-index:100;
+}
+
+.prayers-menu.open{
+  display:grid;
+  gap:6px;
+}
+
+.prayers-menu a{
+  padding:10px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  color:var(--text);
+}
+
+.prayers-menu a:hover{
+  background:rgba(200,169,81,.15);
+}
+
+/* PRAYER PAGE READER */
+
+.reader{
+  margin-top:14px;
+  padding:20px;
+  border-radius:22px;
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.reader-title{
+  font-size:26px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.reader-body{
+  font-size:18px;
+  line-height:1.9;
+}
+
+/* hide old bullet menu */
+
+.prayer-page ul:first-of-type{
+  display:none;
+}
+
+.prayer-page input[type="checkbox"]{
+  display:none;
+}
+
 /* Footer */
 footer{
   max-width: var(--max);
