@@ -283,27 +283,34 @@ header .subtitle{
    PRAYER CARDS
 ========================= */
 
+/* =========================
+   PRAYER CARDS (single column)
+========================= */
+
 .image-grid{
   margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
+  display:flex;           /* change grid → flex */
+  flex-direction:column;  /* one item per row */
   gap:16px;
 }
 
+/* remove tile box */
 .image-item{
   background:transparent;
   border:none;
   box-shadow:none;
 }
 
+/* card layout */
 .prayer-card{
   display:flex;
   align-items:center;
   gap:18px;
 
+  width:100%;
   padding:22px;
-  border-radius:36px;
 
+  border-radius:36px;
   background:var(--surface);
   border:1px solid var(--border);
   box-shadow:var(--shadow2);
@@ -316,29 +323,53 @@ header .subtitle{
              border-color .16s ease;
 }
 
+/* thumbnail image */
 .prayer-card img{
-  width:96px;
-  height:96px;
+  width:90px;
+  height:90px;
   object-fit:cover;
 
-  border-radius:22px;
+  border-radius:20px;
   border:1px solid var(--border);
-
   box-shadow:0 10px 24px rgba(0,0,0,.12);
-  flex:0 0 auto;
+
+  flex-shrink:0;
 }
 
+/* prayer title */
 .prayer-title{
   font-weight:900;
-  font-size:34px;
-  line-height:1.15;
+  font-size:32px;
+  line-height:1.2;
   letter-spacing:-0.02em;
 }
 
+/* hover effect */
 .prayer-card:hover{
   transform:translateY(-2px);
   border-color:rgba(200,169,81,.45);
   box-shadow:0 22px 54px rgba(0,0,0,.16);
+}
+
+/* mobile */
+@media (max-width:640px){
+
+  .prayer-card{
+    padding:16px;
+    border-radius:26px;
+    gap:14px;
+  }
+
+  .prayer-card img{
+    width:64px;
+    height:64px;
+    border-radius:16px;
+  }
+
+  .prayer-title{
+    font-size:20px;
+  }
+
 }
 
 /* mobile */
