@@ -25,7 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // try to find heading + first image before moving nodes
     const existingHeading = document.querySelector("h1,h2,h3");
-    const titleText = (existingHeading?.textContent || document.title || "Prayer").trim();
+    let titleText = (existingHeading?.textContent || "").trim();
+
+    // fallback to page title if needed
+    if (!titleText) {
+      titleText = document.title;
+    }
+    
+    // remove site name if present
+    titleText = titleText.replace("Catholic Prayers Malayalam", "").trim();
 
     const firstImage = document.querySelector("img");
     const heroImgSrc = firstImage ? firstImage.getAttribute("src") : "";
