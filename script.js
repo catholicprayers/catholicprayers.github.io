@@ -25,12 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let titleText = "";
 
-    const existingHeading = document.querySelector("h1,h2,h3");
-
-    if (existingHeading) {
-      titleText = existingHeading.textContent.trim();
+    // 1. First priority: old header title div
+    const headerTitle = document.querySelector("header .title");
+    if (headerTitle) {
+      titleText = headerTitle.textContent.trim();
     }
 
+    // 2. Then normal headings
+    if (!titleText) {
+      const existingHeading = document.querySelector("h1,h2,h3");
+      if (existingHeading) {
+        titleText = existingHeading.textContent.trim();
+      }
+    }
+
+    // 3. Then fallback to first meaningful text
     if (!titleText) {
       const bodyText = Array.from(
         document.body.querySelectorAll("p, div, span")
@@ -47,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (bodyText) titleText = bodyText;
     }
 
+    // 4. Final fallback
     if (!titleText) {
       titleText = (document.title || "Prayer")
         .replace("Catholic Prayers Malayalam", "")
@@ -102,28 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="prayers-menu" id="prayersMenu">
 
         <a href="Karunayude japamala.html">കരുണയുടെ ജപമാല</a>
-
         <a href="ജപമാല.html">ജപമാല</a>
-
-        <a href="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html">
-        പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന
-        </a>
-
-        <a href="കുരിശിൻ്റെ വഴി.html">
-        കുരിശിൻ്റെ വഴി
-        </a>
-
-        <a href="Prayer for the Souls in Purgatory.html">
-        ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന
-        </a>
-
-        <a href="prayer after holy communion.html">
-        വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന
-        </a>
-
-        <a href="prayer to St. Cupertino.html">
-        വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം
-        </a>
+        <a href="പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന.html">പരിശുദ്ധാത്മാവിനോടുള്ള പ്രാർഥന</a>
+        <a href="കുരിശിൻ്റെ വഴി.html">കുരിശിൻ്റെ വഴി</a>
+        <a href="Prayer for the Souls in Purgatory.html">ശുദ്ധീകരണാത്മാക്കൾക്ക് വേണ്ടിയുള്ള പ്രാർത്ഥന</a>
+        <a href="prayer after holy communion.html">വിശുദ്ധ കുർബാന സ്വീകരിച്ചതിനുശേഷമുള്ള നന്ദി പ്രാർത്ഥന</a>
+        <a href="prayer to St. Cupertino.html">വിശുദ്ധ കുപ്പർത്തീനോസിനോടുള്ള ജപം</a>
 
       </div>
     `;
@@ -135,17 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     hero.innerHTML = `
       <div class="prayer-hero-card">
-
         ${
           heroImgSrc
             ? `<img class="prayer-hero-img" src="${heroImgSrc}" alt="${heroImgAlt}">`
             : ""
         }
-
-        <div class="prayer-hero-title">
-          ${titleText}
-        </div>
-
+        <div class="prayer-hero-title">${titleText}</div>
       </div>
     `;
 
@@ -168,18 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
     shell.appendChild(reader);
 
     body.innerHTML = "";
-
     body.appendChild(shell);
 
     if (footer) body.appendChild(footer);
 
     /* ---------- Remove old elements ---------- */
 
-    const oldHeading = reader.querySelector("h1,h2,h3");
-    if (oldHeading) oldHeading.remove();
-
-    const oldImg = reader.querySelector("img");
-    if (oldImg) oldImg.remove();
+    const oldHeader = reader.querySelector("header");
+    if (oldHeader) oldHeader.remove();
 
     const oldList = reader.querySelector("ul");
     if (oldList) oldList.remove();
@@ -187,15 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const oldNav = reader.querySelector("nav");
     if (oldNav) oldNav.remove();
 
-    const oldHeader = reader.querySelector("header");
-    if (oldHeader) oldHeader.remove();
-
     const oldCheckbox = reader.querySelector('input[type="checkbox"]');
     if (oldCheckbox) oldCheckbox.remove();
 
     const oldHomeLink = Array.from(reader.querySelectorAll("a"))
       .find(a => a.textContent.trim() === "Home");
-
     if (oldHomeLink) oldHomeLink.remove();
   }
 
@@ -216,7 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (e) => {
       if (!prayersMenu.contains(e.target) &&
           !prayersBtn.contains(e.target)) {
-
         prayersMenu.classList.remove("open");
       }
     });
@@ -233,19 +213,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================= */
 
   const input = document.getElementById("prayerSearch");
-
-  const cards = Array.from(
-    document.querySelectorAll(".prayer-card")
-  );
-
+  const cards = Array.from(document.querySelectorAll(".prayer-card"));
   const count = document.getElementById("searchCount");
 
   if (!input || cards.length === 0) return;
 
   const updateCount = (visible, total) => {
-
     if (!count) return;
-
     count.textContent =
       visible === total
         ? `${total} prayers`
@@ -255,25 +229,15 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCount(cards.length, cards.length);
 
   input.addEventListener("input", () => {
-
     const q = input.value.trim().toLowerCase();
-
     let visible = 0;
 
     cards.forEach(card => {
-
-      const t =
-        (card.getAttribute("data-title") || "")
-          .toLowerCase();
-
-      const show =
-        q === "" || t.includes(q);
+      const t = (card.getAttribute("data-title") || "").toLowerCase();
+      const show = q === "" || t.includes(q);
 
       const row = card.closest(".image-item");
-
-      if (row) {
-        row.style.display = show ? "" : "none";
-      }
+      if (row) row.style.display = show ? "" : "none";
 
       if (show) visible++;
     });
