@@ -1,7 +1,6 @@
 // CatholicPrayers main script
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const path = (location.pathname || "").toLowerCase();
   const isIndex =
     path.endsWith("/") ||
@@ -9,42 +8,48 @@ document.addEventListener("DOMContentLoaded", () => {
     path === "/" ||
     path === "";
 
-  /* -----------------------------
+  /* =========================================
      AUTO LAYOUT FOR PRAYER PAGES
-  ------------------------------*/
-
+  ========================================= */
   if (!isIndex && !document.querySelector(".shell")) {
-
     const body = document.body;
     body.classList.add("prayer-page");
 
     const footer = body.querySelector("footer");
 
+    // collect page nodes except footer/script
     const nodes = Array.from(body.children).filter(el => {
       if (el === footer) return false;
       return el.tagName !== "SCRIPT";
     });
 
+    // try to find heading + first image before moving nodes
+    const existingHeading = document.querySelector("h1,h2,h3");
+    const titleText = (existingHeading?.textContent || document.title || "Prayer").trim();
+
+    const firstImage = document.querySelector("img");
+    const heroImgSrc = firstImage ? firstImage.getAttribute("src") : "";
+    const heroImgAlt = firstImage ? (firstImage.getAttribute("alt") || titleText) : titleText;
+
+    // shell
     const shell = document.createElement("div");
     shell.className = "shell";
 
+    // topbar
     const nav = document.createElement("nav");
     nav.className = "topbar";
-
     nav.innerHTML = `
       <div class="topbar-left">
-
         <a href="index.html" class="pill-button">
-          <span class="pill-icon">🏠</span>
+          <span class="pill-icon" aria-hidden="true">🏠</span>
           Home
         </a>
 
-        <button class="pill-button pill-button-btn" id="prayersBtn">
-          <span class="pill-icon">📖</span>
+        <button class="pill-button pill-button-btn" id="prayersBtn" type="button">
+          <span class="pill-icon" aria-hidden="true">📖</span>
           Prayers
-          <span class="pill-caret">▾</span>
+          <span class="pill-caret" aria-hidden="true">▾</span>
         </button>
-
       </div>
 
       <div class="prayers-menu" id="prayersMenu">
@@ -58,42 +63,61 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // hero card like home tiles
+    const prayerHero = document.createElement("section");
+    prayerHero.className = "prayer-hero";
+    prayerHero.innerHTML = `
+      <div class="prayer-hero-card">
+        ${heroImgSrc ? `<img class="prayer-hero-img" src="${heroImgSrc}" alt="${heroImgAlt}">` : ""}
+        <div class="prayer-hero-title">${titleText}</div>
+      </div>
+    `;
+
+    // reader content
     const reader = document.createElement("main");
     reader.className = "reader";
 
-    const heading = document.querySelector("h1,h2,h3");
-    const titleText = (heading?.textContent || document.title || "Prayer").trim();
+    const readerBody = document.createElement("div");
+    readerBody.className = "reader-body";
 
-    const title = document.createElement("h1");
-    title.className = "reader-title";
-    title.textContent = titleText;
+    // move old content into reader body
+    nodes.forEach(n => readerBody.appendChild(n));
 
-    const bodyWrap = document.createElement("div");
-    bodyWrap.className = "reader-body";
+    reader.appendChild(readerBody);
 
-    nodes.forEach(n => bodyWrap.appendChild(n));
-
-    reader.appendChild(title);
-    reader.appendChild(bodyWrap);
-
+    // rebuild body
     shell.appendChild(nav);
+    shell.appendChild(prayerHero);
     shell.appendChild(reader);
 
     body.innerHTML = "";
     body.appendChild(shell);
     if (footer) body.appendChild(footer);
+
+    // remove duplicated old heading/image/list inside reader
+    const oldHeadings = reader.querySelectorAll("h1, h2, h3");
+    oldHeadings.forEach((el, idx) => {
+      if (idx === 0) el.remove();
+    });
+
+    const oldImgs = reader.querySelectorAll("img");
+    oldImgs.forEach((img, idx) => {
+      if (idx === 0) img.remove();
+    });
+
+    const oldFirstList = reader.querySelector("ul");
+    if (oldFirstList) oldFirstList.remove();
   }
 
-  /* -----------------------------
+  /* =========================================
      PRAYERS DROPDOWN
-  ------------------------------*/
-
+  ========================================= */
   const prayersBtn = document.getElementById("prayersBtn");
   const prayersMenu = document.getElementById("prayersMenu");
 
   if (prayersBtn && prayersMenu) {
-
-    prayersBtn.addEventListener("click", () => {
+    prayersBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       prayersMenu.classList.toggle("open");
     });
 
@@ -102,12 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
         prayersMenu.classList.remove("open");
       }
     });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") prayersMenu.classList.remove("open");
+    });
   }
 
-  /* -----------------------------
+  /* =========================================
      INDEX SEARCH FILTER
-  ------------------------------*/
-
+  ========================================= */
   const input = document.getElementById("prayerSearch");
   const cards = Array.from(document.querySelectorAll(".prayer-card"));
   const count = document.getElementById("searchCount");
@@ -116,29 +143,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateCount = (visible, total) => {
     if (!count) return;
-    count.textContent = visible === total
-      ? `${total} prayers`
-      : `${visible} of ${total} prayers`;
+    count.textContent = visible === total ? `${total} prayers` : `${visible} of ${total} prayers`;
   };
 
   updateCount(cards.length, cards.length);
 
   input.addEventListener("input", () => {
-
     const q = input.value.trim().toLowerCase();
     let visible = 0;
 
     cards.forEach(card => {
-
       const t = (card.getAttribute("data-title") || "").toLowerCase();
       const show = q === "" || t.includes(q);
 
-      card.closest(".image-item").style.display = show ? "" : "none";
+      const row = card.closest(".image-item");
+      if (row) row.style.display = show ? "" : "none";
 
       if (show) visible++;
     });
 
     updateCount(visible, cards.length);
   });
-
 });
