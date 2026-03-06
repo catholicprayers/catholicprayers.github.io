@@ -359,6 +359,106 @@ a:hover{ text-decoration:underline; }
   display:none;
 }
 
+/* =========================
+   Prayer page hero like home
+========================= */
+
+.prayer-page .prayer-hero{
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.prayer-page .prayer-hero-card{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+  padding: 18px;
+  border-radius: 30px;
+
+  background: var(--card);
+  border: 1px solid rgba(200,169,81,.45);
+  box-shadow: var(--shadow);
+}
+
+.prayer-page .prayer-hero-img{
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  flex: 0 0 auto;
+}
+
+.prayer-page .prayer-hero-title{
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+/* prayer reader card below */
+.prayer-page .reader{
+  margin-top: 0;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.prayer-page .reader-body{
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.prayer-page .reader-body p{
+  margin: 10px 0;
+}
+
+/* hide leftovers from old structure */
+.prayer-page input[type="checkbox"]{
+  display: none !important;
+}
+
+.prayer-page ul:first-of-type{
+  display: none !important;
+}
+
+/* mobile */
+@media (max-width: 640px){
+  .prayer-page .prayer-hero-card{
+    padding: 14px;
+    border-radius: 22px;
+    gap: 12px;
+  }
+
+  .prayer-page .prayer-hero-img{
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
+
+  .prayer-page .prayer-hero-title{
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .prayer-page .reader{
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .prayer-page .reader-body{
+    font-size: 16px;
+    line-height: 1.85;
+  }
+}
+
 /* Footer */
 footer{
   max-width: var(--max);
