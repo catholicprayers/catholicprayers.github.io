@@ -500,50 +500,55 @@ a:hover{ text-decoration:underline; }
 }
 
 /* =========================
-   Stations layout (Way of Cross)
+   Stations layout
 ========================= */
 
 .station{
-  margin: 32px 0 18px;
+  margin: 36px 0 24px;
 }
 
-/* station number (centered) */
+/* station number */
 .station-number{
-  font-weight: 900;
-  font-size: 22px;
-  margin-bottom: 10px;
-  text-align: center;
+  font-weight:900;
+  font-size:24px;
+  text-align:center;
+  margin-bottom:16px;
 }
 
-/* image + title row */
+/* row layout */
 .station-row{
   display:flex;
   align-items:center;
-  gap:18px;
+  justify-content:center;
+  gap:28px;
 }
 
-/* larger station image */
+/* larger image */
 .station-row img{
-  width:110px;
-  height:110px;
+  width:140px;
+  height:140px;
   object-fit:cover;
   border-radius:18px;
   border:1px solid var(--border);
 }
 
-/* title (same size as previous card layout) */
+/* station title */
 .station-title{
-  font-weight:800;
   font-size:22px;
-  line-height:1.3;
+  font-weight:800;
+  line-height:1.35;
 }
 
 /* mobile */
 @media (max-width:640px){
 
+  .station-row{
+    gap:16px;
+  }
+
   .station-row img{
-    width:80px;
-    height:80px;
+    width:100px;
+    height:100px;
   }
 
   .station-title{
@@ -555,7 +560,6 @@ a:hover{ text-decoration:underline; }
   }
 
 }
-
 /* Footer */
 footer{
   max-width: var(--max);
